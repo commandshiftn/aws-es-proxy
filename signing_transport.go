@@ -61,6 +61,24 @@ func (p *SigningRoundTripper) RoundTrip(req *http.Request) (*http.Response, erro
 		if lk == "x-forward-port" {
 			delete(req.Header, k)
 		}
+		if lk == "x-forwarded-port" {
+			delete(req.Header, k)
+		}
+		if lk == "x-forwarded-prefix" {
+			delete(req.Header, k)
+		}
+		if lk == "x-netflix-httpclientname" {
+			delete(req.Header, k)
+		}
+		if lk == "x-newrelic-id" {
+			delete(req.Header, k)
+		}
+		if lk == "x-newrelic-transaction" {
+			delete(req.Header, k)
+		}
+		if lk == "netflix.nfhttpclient.version" {
+			delete(req.Header, k)
+		}
 	}
 
 	// We're going to put our own auth headers on here
